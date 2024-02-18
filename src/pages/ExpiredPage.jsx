@@ -36,7 +36,7 @@ export default class ExpiredPage extends Component {
 
   // Get items from the beginning
   async componentDidMount() {
-    console.log("ExpiredPage.componentDidMount()", "Fetching items...");
+    // console.log("ExpiredPage.componentDidMount()", "Fetching items...");
     await this.refreshitems();
   }
 

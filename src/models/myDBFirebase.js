@@ -63,20 +63,15 @@ export default class myDBFirebase {
     const items = [];
     // push data to items
     for (let doc of res.docs) {
-      // const exp = doc.get("expiration").toDate().toLocaleDateString("en-US", {
-      //   month: "2-digit",day: "2-digit",year: "numeric"});
-      // const exp = moment(doc.get("expiration").toDate()).format("YYYY-MM-DD");
       const item = doc.data();
       item.id = doc.id;
       items.push(item);
     }
-    console.log("🌎 myDB items", items);
     return items;
   }
 
   // update expired items which period are not day
   async updateItems() {
-    console.log("✍️ Update items");
     if (!this.db) {
       console.error("Database not initialized!");
       return;
@@ -102,48 +97,39 @@ export default class myDBFirebase {
           break;
       }
     });
-    const res = await batch.commit();
-    console.log("updated items", res);
+    await batch.commit();
   }
 
   // Add item into db
   async addItem(item) {
-    console.log("➕Add Item", item, this.db);
     if (!this.db) {
       console.error("Database not initialized!");
       return;
     }
     const itemsCollection = collection(this.db, "Items");
-    const res = await addDoc(itemsCollection, item);
-    console.log("❤️⚠️📣 addItem() res", res, res.id);
-    // return res;
+    await addDoc(itemsCollection, item);
   }
 
   // Remove item from db by id
   async removeItem(id) {
-    console.log("⛔ Remove item ", id, this.db);
     if(!this.db) {
       console.error("Database not initialized!");
       return;
     }
-    const res = await deleteDoc(doc(this.db, "Items", id));
-    console.log("Remove item res:", res);
+    await deleteDoc(doc(this.db, "Items", id));
   }
 
   // Modify item from db by id
   async modifyItem(item) {
-    console.log("📝 Modify item", item);
     if(!this.db) {
       console.error("Database not initialized!");
       return;
     }
-    const res = await updateDoc(doc(this.db, "Items", item.id), item);
-    console.log("Modify item res:", res);
+    await updateDoc(doc(this.db, "Items", item.id), item);
   }
 
   // Search items (not expired) from db by name and tag
   async searchItems(name, tag, operator) {
-    console.log("🔍 Search items", name, tag);
     if(!this.db) {
       console.error("Database not initialized!");
       return;
@@ -177,18 +163,6 @@ export default class myDBFirebase {
         items.push(item);
       }
     }
-    console.log("🔍 seachItem res", items);
     return items;
   }
 }
-
-
-
-// // Get a list of cities from your database
-// async function getCities(db) {
-//   const citiesCol = collection(db, 'cities');
-//   const citySnapshot = await getDocs(citiesCol);
-//   const cityList = citySnapshot.docs.map(doc => doc.data());
-//   return cityList;
-// }
-// console.log(getCities());
