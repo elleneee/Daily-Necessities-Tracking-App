@@ -7,10 +7,10 @@ An app helps record daily necessities and make it easier for people to keep trac
 Try it online: [DailyTack](https://dailytrack-a5348.web.app)  
 
 ### How to run
-Clone the project and run commands below in the directory.
 * `npm install`  
 * `npm run dev`
 
+Clone the project and run commands in the directory.  
 Open http://localhost:5173/ to view it in your broswer.
 
 ## Design document
