@@ -148,6 +148,7 @@ export default class myDBFirebase {
     const res = await getDocs(q);
     // push data to items
     let items = [];
+    name = name.toLowerCase();
     if(name){
       res.docs.forEach((doc) => {
         const item = doc.data();
