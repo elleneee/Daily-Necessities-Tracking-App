@@ -16,5 +16,5 @@ Open http://localhost:5173/ to view it in your broswer.
 ## Design document
 Online design document: [Design document](https://docs.google.com/document/d/1yBTMQzMdcOaUl5NB9IebGZ8m_Sm-pG9p/edit?usp=sharing&ouid=117981882375661614074&rtpof=true&sd=true)
 
-## Tutorial video
-See the tutorial video in YouTube: [Introduction of DailyTrack]()
+## Introduction video
+See the video on YouTube: [Introduction of DailyTrack](https://youtu.be/EohP2w7zziQ)
