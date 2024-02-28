@@ -1,5 +1,6 @@
 # DailyTrack-App
 An app helps record daily necessities and make it easier for people to keep track of what items they have and when they need to refill.  
+Author: Jing Xia
 
 
 ## Getting started
